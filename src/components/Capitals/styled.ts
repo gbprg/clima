@@ -6,11 +6,14 @@ export const Container = styled.div`
   }
 
   .content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
+    width: 100%;
+    height: 500;
+    max-height: 402px;
+    overflow: hidden;
 
     span {
       color: #000;
@@ -21,7 +24,8 @@ export const Container = styled.div`
     display: flex;
     gap: 1rem;
     align-items: center;
-    width: 20%;
+    width: 100%;
+    margin-top: 1rem;
   }
 
   .degrees {
@@ -39,5 +43,11 @@ export const Container = styled.div`
     align-items: flex-end;
     height: 3.2rem;
     width: 100%;
+  }
+  .space-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
   }
 `;
