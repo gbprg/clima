@@ -1,24 +1,28 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 
-const instance = axios.create({
-  baseURL:
-    "api.openweathermap.org/data/2. 5/weather?q=London,uk&APPID= 402d2ac367dd4c7341786a657f7899 cf",
-});
-
-interface WeatherData {
-  id: string;
-  temperatureMin: number;
-  temperatureMax: number;
-  city: string;
+export interface CityWeatherData {
+  main: {
+    temp: number;
+    temp_min: number;
+    temp_max: number;
+    cityName: string;
+    uf: string;
+    avgTemperature: number;
+    minTemperature: number;
+    maxTemperature: number;
+    feelsLike: number;
+    windSpeed: number;
+    humidity: number;
+    nextDaysTemperatures: number[];
+  };
 }
 
-async function getApi(): Promise<AxiosResponse<WeatherData[]>> {
-  try {
-    const response = await instance.get("");
-    return response;
-  } catch (error) {
-    throw error;
-  }
+export async function getCityWeather(
+  cityName: string,
+): Promise<CityWeatherData> {
+  const apiKey = "cd809ec3385562f6a222d02d699927bb";
+  const response = await axios.get(
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`,
+  );
+  return response.data;
 }
-
-export { getApi };

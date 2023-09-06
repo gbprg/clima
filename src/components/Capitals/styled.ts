@@ -7,7 +7,21 @@ export const Container = styled.div`
 
   .content {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     gap: 1rem;
+
+    span {
+      color: #000;
+    }
+  }
+
+  .degreesSpace {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 20%;
   }
 
   .degrees {
@@ -18,5 +32,12 @@ export const Container = styled.div`
     gap: 10px;
     color: #000;
     width: 2rem;
+  }
+
+  .spaceCity {
+    display: flex;
+    align-items: flex-end;
+    height: 3.2rem;
+    width: 100%;
   }
 `;
